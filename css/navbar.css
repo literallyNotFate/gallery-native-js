@@ -1,0 +1,67 @@
+.navbar {
+    background-color: white; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    font-family: "system-ui"
+}
+
+.navbar-content {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    max-width: 72rem; 
+}
+
+.navbar-links {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.navbar-links-content {
+    display: flex; 
+    margin-left: 1.75rem;
+}
+
+.navbar-icon {
+    display: flex; 
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    align-items: center; 
+}
+
+.icon {
+    margin-right: 0.5rem; 
+    width: 2.5rem; 
+    height: 2.5rem; 
+}
+
+.navbar-items {
+    display: flex; 
+    margin-left: 0.25rem; 
+    align-items: center; 
+}
+
+.item {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    font-weight: 600; 
+    transtion: all 0.3s;
+    color: #6B7280;
+    text-decoration: none;
+}
+
+.item:hover {
+    color: #3B82F6; 
+}
+
+.active {
+    border-bottom: 4px solid #3B82F6;
+    color: #3B82F6;
+}
+
+.add-item {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem; 
+}
