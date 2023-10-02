@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/gallery-icon.png">
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="/css/index.css">
+	<link rel="stylesheet" type="text/css" href="/css/footer.css">
     <title>Gallery App | Home</title>
+
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -21,13 +25,50 @@
 					</div>
 					
 					<div class="navbar-items">
-						<a href="" class="item active">Home</a>
-						<a href="" class="item">About</a>
-						<a href="" class="item">Contact Us</a>
-                        <a href="" class="item add-item">Add</a>
+						<a href="index.html" class="item active">Home</a>
+						<a href="/pages/gallery.html" class="item">Gallery</a>
+						<a href="/pages/about.html" class="item">About</a>
+						<a href="/pages/contacts.html" class="item">Contacts</a>
+                        <a href="/pages/add.html" class="item add-item">Add</a>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class="main-container">
+		<div class="main-container-content">
+			<div>
+				<h1 class="hero-text">Start your journey with Gallery App!</h1>
+				<p class="hero-description">Gallery application made using native JavaScript, HTML and CSS.</p>
+				<a href="/pages/gallery.html" class="btn-default" style="float:right;">Get Started</a>
+			</div>
+			<div>
+				<img src="/assets/hero-image.jpg" alt="Hero image"/>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="footer-content">
+		  	<span class="logo-text">© 2023 GalleryApp™.</span>
+			
+			<ul class="footer-items">
+				<li>
+					<a href="/index.html" class="footer-item">Home</a>
+				</li>
+				<li>
+					<a href="/pages/gallery.html" class="footer-item">Gallery</a>
+				</li>
+				<li>
+					<a href="/pages/about.html" class="footer-item">About</a>
+				</li>
+				<li>
+					<a href="/pages/contacts.html" class="footer-item">Contacts</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </body>

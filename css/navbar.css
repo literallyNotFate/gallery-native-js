@@ -1,13 +1,16 @@
 .navbar {
     background-color: white; 
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    font-family: "system-ui"
+    font-family: "system-ui";
+    border-radius: 0.75rem;
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem; 
 }
 
 .navbar-content {
-    padding-left: 1rem;
-    padding-right: 1rem; 
-    max-width: 72rem; 
+    margin-left: 1rem;
+    margin-right: 1rem; 
+    max-width: 72rem;
 }
 
 .navbar-links {
@@ -16,12 +19,11 @@
 }
 
 .navbar-links-content {
-    display: flex; 
-    margin-left: 1.75rem;
+    display: flex;
 }
 
 .navbar-icon {
-    display: flex; 
+    display: flex;
     padding-left: 0.5rem;
     padding-right: 0.5rem; 
     padding-top: 1rem;
@@ -53,7 +55,7 @@
 }
 
 .item:hover {
-    color: #3B82F6; 
+    color: #3B82F6;
 }
 
 .active {
