@@ -16,7 +16,8 @@
 .logo-text {
     font-size: 0.875rem;
     line-height: 1.25rem; 
-    color: #6B7280; 
+    color: #6B7280;
+    font-weight: bold;
 }
 
 .footer-items {
