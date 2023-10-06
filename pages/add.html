@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/add.css">
-    <title>Gallery App | Gallery</title>
+    <title>Gallery App | Add Image</title>
 </head>
 <body>
     <!-- Navbar -->
@@ -46,7 +46,7 @@
                         </svg>
 
                         <div class="uploading">
-                            <label for="file-upload">
+                            <label for="img-upload">
                                 <span>Upload a file</span>
                                 <input id="img-upload" name="img-upload" type="file">
                             </label>
@@ -58,10 +58,21 @@
             </div>
 
             <div class="add-content-block">
-                <label for="name">Image name</label>
-                <div style="margin-top: 0.5rem;">
-                    <input id="name" name="name" type="text" autocomplete="off">
+                <div>
+					<label for="name">Image name</label>
+                    <input id="name" name="name" type="text" autocomplete="off" placeholder="Enter image name">
                 </div>
+
+				<div class="tags-form">
+					<label for="tags-input">Tags</label>
+
+					<ul id="tags"></ul>
+
+					<div>
+						<input id="tags-input" name="tags-input" type="text" autocomplete="off" placeholder="Enter tag">
+						<button class="btn-default">Add</button>
+					</div>
+				</div>
             </div>
         </form>
 	</div>
@@ -87,5 +98,8 @@
 			</ul>
 		</div>
 	</div>
+
+	<!-- Scripts -->
+	<script src="/js/addingTags.js"></script>
 </body>
 </html>

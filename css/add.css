@@ -11,7 +11,8 @@
 
 .add-content-form {
     width: 100%;
-    display: flex; 
+    display: flex;
+    flex-direction: row;
     gap: 1.25rem; 
     height: fit-content; 
 
@@ -19,6 +20,9 @@
 
 .add-content-block {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .image-form {
@@ -101,6 +105,42 @@ input[type="text"]:focus {
     border-color: #3B82F6;
     outline: none; 
 }
+
+.btn-default {
+    border-radius: 0.5rem; 
+    padding: 0.375rem;
+    width: 25%;
+}
+
+.tags-form > div {
+    display: flex; 
+    gap: 1.25rem; 
+}
+
+.tags-form ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.tags-form li { 
+    display: inline-block; 
+    background-color: #3B82F6; 
+    color: white; 
+    border-radius: 0.375rem; 
+    padding: 5px 10px; 
+    margin-right: 5px; 
+    margin-bottom: 0.5rem; 
+}
+
+.delete-btn { 
+    background-color: transparent; 
+    border: none; 
+    color: red; 
+    cursor: pointer; 
+    margin-left: 15px; 
+}
+
 
 @media (max-width: 768px) { 
     .add-container { 
