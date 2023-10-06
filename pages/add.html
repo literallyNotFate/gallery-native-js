@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/gallery-icon.png">
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/add.css">
+    <title>Gallery App | Gallery</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+		<div class="navbar-content">
+			<div class="navbar-links">
+				<div class="navbar-links-content">
+					<div>
+						<a href="/index.html" class="navbar-icon">
+							<img src="/assets/gallery-icon.png" alt="Logo" class="icon" />
+						</a>
+					</div>
+					
+					<div class="navbar-items">
+						<a href="/index.html" class="item">Home</a>
+						<a href="/pages/gallery.html" class="item">Gallery</a>
+						<a href="/pages/about.html" class="item">About</a>
+						<a href="/pages/contacts.html" class="item">Contacts</a>
+                        <a href="/pages/add.html" class="item add-item active">Add</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class="add-container">
+        <form class="add-content-form">
+            <div class="add-content-block">
+                <div class="image-form">
+                    <div>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                        </svg>
+
+                        <div class="uploading">
+                            <label for="file-upload">
+                                <span>Upload a file</span>
+                                <input id="img-upload" name="img-upload" type="file">
+                            </label>
+                        </div>
+
+                        <p>PNG, JPG, up to 10MB</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-content-block">
+                <label for="name">Image name</label>
+                <div style="margin-top: 0.5rem;">
+                    <input id="name" name="name" type="text" autocomplete="off">
+                </div>
+            </div>
+        </form>
+	</div>
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="footer-content">
+		  	<span class="logo-text">© 2023 GalleryApp™.</span>
+			
+			<ul class="footer-items">
+				<li>
+					<a href="/index.html" class="footer-item">Home</a>
+				</li>
+				<li>
+					<a href="/pages/gallery.html" class="footer-item">Gallery</a>
+				</li>
+				<li>
+					<a href="/pages/about.html" class="footer-item">About</a>
+				</li>
+				<li>
+					<a href="/pages/contacts.html" class="footer-item">Contacts</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
