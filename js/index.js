@@ -130,9 +130,9 @@ form.addEventListener("submit", (e) => {
         var gallery = JSON.parse(localStorage.getItem("data") || "[]");
         gallery.push(result);
         localStorage.setItem("data", JSON.stringify(gallery));
-    });
 
-    formResetting()
+        formResetting()
+    });
 })
 
 

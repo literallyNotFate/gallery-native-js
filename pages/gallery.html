@@ -87,5 +87,34 @@
 			</ul>
 		</div>
 	</div>
+
+	<!-- Scripts -->
+	<script>
+		const gallery = JSON.parse(localStorage.getItem('data'))
+		const content = document.getElementsByClassName("gallery-content")[0];
+
+		if(gallery) {
+			gallery.map((item, idx) => {
+				let tags = item.tags.map((tag) => {
+					return `<div><span>${tag}</span></div>`
+				})
+				tags = tags.join(' ')
+
+				const card = `<div class='gallery-card'>
+					<img src=${item.image} alt="Image ${idx}" />
+					
+					<div class="gallery-card-content">
+						<h1>${item.name}</h1>
+
+						<div class='gallery-card-tags'>${tags}</div>
+					</div>
+				</div>`
+
+				content.innerHTML += card
+			})
+		} else {
+			document.getElementsByClassName('main-container')[0].style.display = 'none'
+		}
+	</script>
 </body>
 </html>
