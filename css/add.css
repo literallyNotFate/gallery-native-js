@@ -112,6 +112,13 @@ input[type="text"]:focus {
     width: 25%;
 }
 
+.btn-default:disabled {
+    border: 1px solid #D1D5DB;
+    background-color: #D1D5DB; 
+    cursor: not-allowed; 
+    opacity: 0.5; 
+}
+
 .tags-form > div {
     display: flex; 
     gap: 1.25rem; 
