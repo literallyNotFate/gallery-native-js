@@ -37,35 +37,7 @@
 
 	<!-- Content -->
 	<div class="main-container">
-        <div class="gallery-content">
-            <div class="gallery-card">
-                <img src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg" alt="" />
-
-                <div class="gallery-card-content">
-                    <h1>Image 1</h1>
-
-                    <div class="gallery-card-tags">
-                        <div>
-                            <span>nature</span>
-                        </div>
-                        <div>
-                            <span>nature</span>
-                        </div>
-                        <div>
-                            <span>nature</span>
-                        </div>
-                        <div>
-                            <span>nature</span>
-                        </div>
-                        <div>
-                            <span>nature</span>
-                        </div>
-                    </div>
-                </div>
-
-				<button id="delete-img">Delete</button>
-            </div>
-        </div>
+        <div class="gallery-content"></div>
 	</div>
 
 	<!-- Footer -->
@@ -95,7 +67,7 @@
 		const gallery = JSON.parse(localStorage.getItem('data'))
 		const content = document.getElementsByClassName("gallery-content")[0];
 
-		if(gallery) {
+		if(gallery.length) {
 			gallery.map((item, idx) => {
 				let tags = item.tags.map((tag) => {
 					return `<div><span>${tag}</span></div>`
@@ -111,11 +83,20 @@
 						<div class='gallery-card-tags'>${tags}</div>
 					</div>
 
-					<button id="delete-img">Delete</button>
+					<button class="delete-img">Delete</button>
 				</div>`
 
 				content.innerHTML += card
 			})
+
+			for (let i = 0; i < gallery.length; i++) {
+				document.getElementsByClassName("delete-img")[i].addEventListener('click', function(i) {
+					gallery.splice(i, 1);
+					localStorage.setItem('data', JSON.stringify(gallery));
+
+					location.reload()
+				}.bind(null, i))
+			}
 		} else {
 			document.getElementsByClassName('main-container')[0].style.display = 'none'
 		}
