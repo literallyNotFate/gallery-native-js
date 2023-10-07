@@ -2,11 +2,13 @@
 // Uploading
 // ---------------------------------------------------
 
+var image;
+
 var imgInput = document.getElementById('img-upload')
 
 imgInput.addEventListener('change', (e) => {
     e.preventDefault()
-    const image = imgInput.files[0]
+    image = imgInput.files[0]
 
     const tagsArray = Array.from(document.getElementById('tags').getElementsByTagName("li")).map((item) => item.innerText.slice(0, -1))
 
@@ -101,3 +103,49 @@ inputs.forEach((item) => {
         submit.disabled = validate(imgName.value, tagsArray, document.getElementById("img-data").children.namedItem("preview"))
     })
 })
+
+
+
+// ---------------------------------------------------
+// Submitting
+// ---------------------------------------------------
+
+const form = document.getElementById("gallery-form")
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const reader = new FileReader();
+    if (image) {
+        reader.readAsDataURL(image)
+    }
+
+    reader.addEventListener('load', () => {
+        const result = {
+            name: document.getElementById('name').value,
+            tags: Array.from(document.getElementById('tags').getElementsByTagName("li")).map((item) => item.innerText.slice(0, -1)),
+            image: reader.result
+        }
+
+        var gallery = JSON.parse(localStorage.getItem("data") || "[]");
+        gallery.push(result);
+        localStorage.setItem("data", JSON.stringify(gallery));
+    });
+
+    formResetting()
+})
+
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+function formResetting() {
+    form.reset()
+    removeAllChildNodes(document.getElementById("tags"))
+
+    const preview = document.getElementsByClassName("img-preview")[0]
+    document.getElementById("img-data").removeChild(preview)
+}
