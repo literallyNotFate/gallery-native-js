@@ -8,6 +8,8 @@ imgInput.addEventListener('change', (e) => {
     e.preventDefault()
     const image = imgInput.files[0]
 
+    const tagsArray = Array.from(document.getElementById('tags').getElementsByTagName("li")).map((item) => item.innerText.slice(0, -1))
+
     let prev = document.createElement('p')
     prev.className = 'img-preview'
     prev.setAttribute('name', 'preview');
@@ -22,8 +24,12 @@ imgInput.addEventListener('change', (e) => {
         document.getElementsByClassName("remove-img")[0].addEventListener('click', () => {
             document.getElementById("img-data").removeChild(preview)
             imgInput.value = null
+
+            submit.disabled = validate(imgName.value, tagsArray, document.getElementById("img-data").children.namedItem("preview"))
         })
     }
+
+    submit.disabled = validate(imgName.value, tagsArray, document.getElementById("img-data").children.namedItem("preview"))
 })
 
 
@@ -55,7 +61,7 @@ tagAddButton.addEventListener('click', (e) => {
         tagInput.value = ''
         
         array = Array.from(tags.getElementsByTagName("li")).map((item) => item.innerText.slice(0, -1))
-        submit.disabled = validate(imgName.value, array)
+        submit.disabled = validate(imgName.value, array, document.getElementById("img-data").children.namedItem("preview"))
     }
 })
 
@@ -65,7 +71,7 @@ tags.addEventListener('click', (e) => {
         e.target.parentNode.remove()
 
         const tagsArray = Array.from(document.getElementById('tags').getElementsByTagName("li")).map((item) => item.innerText.slice(0, -1))
-        submit.disabled = validate(imgName.value, tagsArray)
+        submit.disabled = validate(imgName.value, tagsArray, document.getElementById("img-data").children.namedItem("preview"))
     } 
 })
 
@@ -78,9 +84,9 @@ tags.addEventListener('click', (e) => {
 const submit = document.getElementById('submit-form')
 const imgName = document.getElementById('name')
 
-function validate(name, tags) {
+function validate(name, tags, uploaded) {
     const img = name.trim()
-    if(img.length > 0 && tags.length > 0) {
+    if(img.length > 0 && tags.length > 0 && uploaded) {
         return false;
     }
 
@@ -92,6 +98,6 @@ const inputs = document.querySelectorAll('input:not([type="submit"]):not([type="
 inputs.forEach((item) => {
     item.addEventListener('keyup', () => {
         const tagsArray = Array.from(document.getElementById('tags').getElementsByTagName("li")).map((item) => item.innerText.slice(0, -1))
-        submit.disabled = validate(imgName.value, tagsArray)
+        submit.disabled = validate(imgName.value, tagsArray, document.getElementById("img-data").children.namedItem("preview"))
     })
 })
