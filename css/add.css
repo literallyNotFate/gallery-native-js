@@ -148,6 +148,26 @@ input[type="text"]:focus {
     margin-left: 15px; 
 }
 
+.img-preview {
+    color: green;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.remove-img { 
+    background: none;
+    padding: 5px;
+    border-radius: 0.375rem; 
+    border: 1px solid red; 
+    color: red; 
+    cursor: pointer; 
+    margin-left: 15px; 
+}
+
+.remove-img:hover {
+    background: red;
+    color: white;
+}
 
 @media (max-width: 768px) { 
     .add-container { 

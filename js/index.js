@@ -1,4 +1,37 @@
+// ---------------------------------------------------
+// Uploading
+// ---------------------------------------------------
+
+var imgInput = document.getElementById('img-upload')
+
+imgInput.addEventListener('change', (e) => {
+    e.preventDefault()
+    const image = imgInput.files[0]
+
+    let prev = document.createElement('p')
+    prev.className = 'img-preview'
+    prev.setAttribute('name', 'preview');
+
+    document.getElementById("img-data").appendChild(prev)
+    const preview = document.getElementsByClassName("img-preview")[0]
+
+    preview.innerText = `Accepted: ${image.name}`
+    preview.innerHTML += `<input type='button' class='remove-img' value='Remove'/>`
+
+    if(document.getElementById("img-data").children.namedItem("preview")) {
+        document.getElementsByClassName("remove-img")[0].addEventListener('click', () => {
+            document.getElementById("img-data").removeChild(preview)
+            imgInput.value = null
+        })
+    }
+})
+
+
+
+// ---------------------------------------------------
 // Adding tags
+// ---------------------------------------------------
+
 const tags = document.getElementById('tags');
 const tagInput = document.getElementById('tags-input')
 const tagAddButton = document.getElementsByClassName('btn-default')[0]
@@ -38,10 +71,12 @@ tags.addEventListener('click', (e) => {
 
 
 
+// ---------------------------------------------------
 // Validation
+// ---------------------------------------------------
+
 const submit = document.getElementById('submit-form')
 const imgName = document.getElementById('name')
-submit.disabled = true
 
 function validate(name, tags) {
     const img = name.trim()
@@ -52,7 +87,7 @@ function validate(name, tags) {
     return true;
 }
 
-const inputs = document.querySelectorAll('input:not([type="submit"])');
+const inputs = document.querySelectorAll('input:not([type="submit"]):not([type="file"])');
 
 inputs.forEach((item) => {
     item.addEventListener('keyup', () => {
