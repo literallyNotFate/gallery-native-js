@@ -3,7 +3,6 @@
 // ---------------------------------------------------
 
 var image;
-
 var imgInput = document.getElementById('img-upload')
 
 imgInput.addEventListener('change', (e) => {
