@@ -4,6 +4,11 @@
     gap: 1.25rem; 
 }
 
+.main-text {
+    font-size: 3rem;
+    line-height: 1; 
+}
+
 .gallery-card {
     border-radius: 0.5rem; 
     max-width: 24rem; 
@@ -11,6 +16,7 @@
     background-color: #ffffff; 
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     cursor: pointer;
+    border: 1px solid lightgray;
     position: relative;
 }
 
@@ -20,7 +26,9 @@
 
 .gallery-card > img {
     border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem; 
+    border-top-right-radius: 0.5rem;
+    width: 100%;
+    height: 200px;
 }
 
 .gallery-card-content {

@@ -37,6 +37,13 @@
 
 	<!-- Content -->
 	<div class="main-container">
+		<div>
+			<input type="text" placeholder="Search images by name or tag" id='search-input'/>
+		</div>
+		<div>
+			<h1 id="main-text"></h1>
+		</div>
+
         <div class="gallery-content"></div>
 	</div>
 
@@ -64,11 +71,21 @@
 
 	<!-- Scripts -->
 	<script>
-		const gallery = JSON.parse(localStorage.getItem('data'))
-		const content = document.getElementsByClassName("gallery-content")[0];
+		const gallery = JSON.parse(localStorage.getItem('data')) || []
+		const content = document.getElementsByClassName("gallery-content")[0]
+		const search = document.getElementById('search-input')
+		const text = document.getElementById('main-text')
 
-		if(gallery.length) {
-			gallery.map((item, idx) => {
+		function displayImages(images) {
+			text.innerText = `Images (${images.length})`
+			content.innerHTML = ''
+
+			if (images.length === 0) {
+				text.innerText = 'No results found.';
+				return;
+			}
+
+			images.map((item, idx) => {
 				let tags = item.tags.map((tag) => {
 					return `<div><span>${tag}</span></div>`
 				})
@@ -89,14 +106,37 @@
 				content.innerHTML += card
 			})
 
-			for (let i = 0; i < gallery.length; i++) {
+			for (let i = 0; i < images.length; i++) {
 				document.getElementsByClassName("delete-img")[i].addEventListener('click', function(i) {
-					gallery.splice(i, 1);
-					localStorage.setItem('data', JSON.stringify(gallery));
+					images.splice(i, 1);
+					localStorage.setItem('data', JSON.stringify(images));
 
 					location.reload()
 				}.bind(null, i))
 			}
+		}
+
+		function searchImages() {
+			const searchInput = search.value.toLowerCase()
+
+			const filteredImages = gallery.filter((image) => {
+				const nameMatch = image.name.toLowerCase().includes(searchInput)
+				const tagMatch = image.tags.some((tag) => {
+					return tag.toLowerCase().includes(searchInput);
+				})
+
+				return nameMatch || tagMatch;
+			})
+
+			displayImages(filteredImages)
+		}
+
+		search.addEventListener('input', (e) => {
+			searchImages()
+		})
+
+		if(gallery.length) {
+			displayImages(gallery)
 		} else {
 			document.getElementsByClassName('main-container')[0].style.display = 'none'
 		}

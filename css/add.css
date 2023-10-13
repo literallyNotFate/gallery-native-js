@@ -89,23 +89,6 @@ p {
     color: #4B5563; 
 }
 
-input[type="text"] {
-    display: block; 
-    border-radius: 0.375rem; 
-    padding: 0.375rem;
-    border-width: 0;
-    width: 100%; 
-    color: #111827;
-    border: 1px solid lightgray;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
-}
-
-input[type="text"]:focus {
-    border-width: 1px; 
-    border-color: #3B82F6;
-    outline: none; 
-}
-
 .btn-default {
     border-radius: 0.5rem; 
     padding: 0.375rem;
@@ -172,11 +155,5 @@ input[type="text"]:focus {
 @media (max-width: 768px) { 
     .add-container { 
         width: 75%;
-    }
-
-    input[type="text"] {
-        font-size: 0.875rem;
-        line-height: 1.25rem; 
-        line-height: 1.5rem; 
     }
 }
