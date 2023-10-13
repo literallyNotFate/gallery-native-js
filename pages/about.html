@@ -37,18 +37,7 @@
 
 	<!-- Content -->
 	<div class="main-container">
-		<div class="about-content">
-			<div class='about-card'>
-                <div class="about-card-logo">
-                    <img src="https://static-00.iconduck.com/assets.00/js-icon-2048x2048-kbwt89q3.png" alt="Logo">
-                </div>
-
-				<div class="about-card-content">
-					<h1>Title</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipis null am vel diam nonum vul tellum</p>
-				</div>
-      		</div>
-		</div>
+		<div class="about-content"></div>
 	</div>
 
 	<!-- Footer -->
@@ -72,5 +61,79 @@
 			</ul>
 		</div>
 	</div>
+
+	<!-- Scripts -->
+	<script>
+		const data = [
+			{
+				img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/800px-HTML5_Badge.svg.png',
+				title: 'Static HTML5',
+				text: 'Made by using static HTML pages without any frameworks/libraries',
+			}, 
+			{
+				img: 'https://logospng.org/download/css-3/logo-css-3-2048.png',
+				title: 'UI with Native CSS',
+				text: 'Cool design with native CSS without using TaiwlindCSS/Bootstrap',
+				size: 'lg'
+			},
+			{
+				img: 'https://static-00.iconduck.com/assets.00/js-icon-2048x2048-kbwt89q3.png',
+				title: 'JavaScript',
+				text: 'Using JS for design and image upload',
+				size: 'xl'
+			},
+			{
+				img: 'https://www.kentac.org.uk/wp-content/uploads/2016/10/GALLERY_ICON.png',
+				title: 'Working with images',
+				text: 'Easily interact with images/GIFs',
+			},
+			{
+				img: 'https://cdn-icons-png.flaticon.com/512/2592/2592258.png',
+				title: 'Secured storage',
+				text: 'All images are being stored in the localStorage using JS without uploading them to cloud services',
+			},
+			{
+				img: 'https://cdn-icons-png.flaticon.com/512/4285/4285622.png',
+				title: 'Fast',
+				text: 'Available actions are being handled really fast using JS',
+			}
+		]
+		
+		function getSize(size) {
+			let res;
+			switch(size) {
+				case 'lg':
+					res = 'lg'
+					break
+				case 'xl':
+					res = 'xl'
+					break
+				default:
+					res = ''
+			}
+
+			return res
+		}
+
+		const content = document.getElementsByClassName('about-content')[0];
+		if(data.length > 0) {
+			data.map((item) => {
+				const about = `<div class="about-card ${getSize(item.size)}">
+					<div class="about-card-logo">
+						<img src=${item.img} alt="Logo">
+					</div>
+
+					<div class="about-card-content">
+						<h1>${item.title}</h1>
+						<p>${item.text}</p>
+					</div>
+      			</div>`
+
+				content.innerHTML += about
+			})
+		} else {
+			document.getElementsByClassName('main-container')[0].style.display = 'none'
+		}
+	</script>
 </body>
 </html>
